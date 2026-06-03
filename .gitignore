@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Local tooling / editor config
+.claude/
+.vercel/
+
+# Dependencies (none required — static site)
+node_modules/
+
+# Logs
+*.log

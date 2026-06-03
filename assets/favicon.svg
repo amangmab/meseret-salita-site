@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Meseret Salita">
+  <rect width="64" height="64" rx="14" fill="#08172d"/>
+  <path d="M16 46V18h7l9 16 9-16h7v28h-7V31L34 43h-4L23 31v15h-7Z" fill="#ffffff"/>
+  <path d="M44 16c-7 0-11 4-11 9 0 6 5 8 10 10 4 2 7 3 7 7 0 3-3 5-7 5-4 0-8-2-11-5l-4 5c4 4 9 6 15 6 8 0 14-4 14-11 0-7-6-9-11-12-4-1-6-3-6-6 0-2 2-4 6-4 3 0 6 1 9 3l3-5c-4-2-8-2-14-2Z" fill="#c8952f"/>
+</svg>
