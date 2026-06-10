@@ -5,8 +5,12 @@ place B2B sales professionals (SDR, BDR, Account Executive, Sales Ops, Customer 
 companies — with replacement flexibility and ongoing support.
 
 This is a **zero-build static site**: plain HTML, one CSS file, one JS file. No framework, no build
-step, no dependencies. It loads fast and deploys anywhere static files are served (it's currently on
-Vercel).
+step, no dependencies. It loads fast and deploys anywhere static files are served.
+
+**Current hosting (interim):** GitHub Pages at
+`https://amangmab.github.io/meseret-salita-site/` — every push to `main` auto-deploys via
+`.github/workflows/deploy-pages.yml`. The `meseretsalita.com` domain still points at the old
+Vercel deployment until the final hosting move.
 
 ## Pages
 | Page | File |
@@ -43,18 +47,30 @@ npx serve .
 See **`CONTENT-TODO.md`** — it lists every placeholder to replace (testimonials, stats, team,
 pricing, social links) and the 2-minute step to make the contact form deliver to your inbox.
 
-## Deploy (Vercel)
-The site is static, so deployment is a drop-in:
+## Deploy (GitHub Pages — current, interim)
+Pushing to `main` is the whole deploy:
 
-- **Vercel dashboard:** drag this folder into a new project, or connect the Git repo. No build
-  command and no output directory are needed — Vercel serves the files as-is. `404.html` is used
-  automatically for not-found pages.
-- **Vercel CLI:**
-  ```bash
-  npm i -g vercel
-  vercel        # preview deploy
-  vercel --prod # production deploy
-  ```
+```bash
+git push origin main
+```
+
+`.github/workflows/deploy-pages.yml` runs automatically and publishes the folder to
+`https://amangmab.github.io/meseret-salita-site/` (it even enables Pages by itself on the
+first run). Check progress under the repo's **Actions** tab.
+
+**Subpath note:** GitHub project sites serve under `/meseret-salita-site/`, so all pages use
+relative URLs. The one exception is `404.html`, which carries
+`<base href="/meseret-salita-site/">` because hosts serve it at any URL depth.
+
+## Moving to final hosting later
+The site deploys anywhere static files are served (Vercel, Netlify, Cloudflare Pages, plain
+nginx…). When you move to a host serving at the domain root:
+
+1. In `404.html`, change `<base href="/meseret-salita-site/">` to `<base href="/">` (keep the tag).
+2. That's it — everything else already uses relative or domain-canonical URLs.
+
+For Vercel specifically: drag the folder into a new project or connect this Git repo — no build
+command or output directory needed; `404.html` is picked up automatically.
 
 ## Brand
 - **Colors:** navy `#08172d` / gold `#c8952f` (full palette in `styles.css` `:root`)

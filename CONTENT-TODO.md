@@ -103,6 +103,21 @@ date (currently auto-fills the current year) and remove the template-notice boxe
 
 ---
 
+## 🟢 13. Hosting (current state + the one-line migration step)
+The site currently runs on **GitHub Pages (interim)** at
+`https://amangmab.github.io/meseret-salita-site/` — pushing to `main` auto-deploys via
+`.github/workflows/deploy-pages.yml`. Canonical/og/sitemap URLs intentionally still point at
+`https://meseretsalita.com`, so this interim copy never competes with the real domain in search.
+
+**When you move to final hosting (domain root):** in `404.html`, change
+`<base href="/meseret-salita-site/">` to `<base href="/">` — keep the tag itself, because hosts
+serve the 404 page at arbitrary URL depths. Nothing else needs changing.
+
+Known quirk until then: previewing `404.html` on a local server shows it unstyled (its `<base>`
+points at the GitHub subpath). The other 10 pages preview normally.
+
+---
+
 ### Where things live
 | Area | File(s) |
 |---|---|
